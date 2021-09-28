@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -13,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.astralai.calculator.ui.theme.Begonia
@@ -52,22 +54,28 @@ fun MyLayout() {
                 modifier = Modifier.fillMaxHeight(),
                 verticalArrangement = Arrangement.Bottom
             ) {
-                Text(
-                    text = "123,554,322,434,345+253,456,343",
-                    fontSize = 40.sp,
-                    modifier = Modifier
-                        .padding(horizontal = 24.dp)
-                        .fillMaxWidth()
-                        .wrapContentHeight()
-                )
-                Text(
-                    text = "123,554,322,434,345+253,456,343",
-                    fontSize = 30.sp,
-                    modifier = Modifier
-                        .padding(horizontal = 24.dp,vertical = 16.dp)
-                        .fillMaxWidth()
-                        .wrapContentHeight(),
-                )
+                SelectionContainer(modifier = Modifier) {
+                    Text(
+                        text = "123,554,322,434,345\n+253,456,343",
+                        fontSize = 40.sp,
+                        textAlign = TextAlign.Right,
+                        modifier = Modifier
+                            .padding(horizontal = 24.dp)
+                            .fillMaxWidth()
+                            .wrapContentHeight()
+                    )
+                }
+                SelectionContainer(modifier = Modifier) {
+                    Text(
+                        text = "=123,554,322,434,345",
+                        fontSize = 30.sp,
+                        textAlign = TextAlign.Right,
+                        modifier = Modifier
+                            .padding(horizontal = 24.dp, vertical = 16.dp)
+                            .fillMaxWidth()
+                            .wrapContentHeight(),
+                    )
+                }
             }
         }
 
@@ -117,7 +125,7 @@ fun MyLayout() {
                             .fillMaxHeight(),
                         contentAlignment = Alignment.Center
                     ) {
-                        Text(text = "/", fontSize = 30.sp, color = Begonia)
+                        Text(text = "÷", fontSize = 30.sp, color = Begonia)
                     }
                 }
 
@@ -156,7 +164,7 @@ fun MyLayout() {
                             .fillMaxHeight(),
                         contentAlignment = Alignment.Center
                     ) {
-                        Text(text = "x", fontSize = 30.sp, color = Begonia)
+                        Text(text = "×", fontSize = 30.sp, color = Begonia)
                     }
                 }
 
