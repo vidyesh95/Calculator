@@ -280,10 +280,12 @@ fun MyLayout() {
     }
 }
 
-@Preview(showBackground = true, name = "Light Mode",
+@Preview(
+    showBackground = true, name = "Light Mode",
     uiMode = Configuration.UI_MODE_NIGHT_NO or Configuration.UI_MODE_TYPE_NORMAL
 )
-@Preview(showBackground = true, name = "Night Mode",
+@Preview(
+    showBackground = true, name = "Night Mode",
     uiMode = Configuration.UI_MODE_NIGHT_YES or Configuration.UI_MODE_TYPE_NORMAL
 )
 @Composable
